@@ -17,8 +17,8 @@
 #**---------------------------------------***----------------------------------------------------------**
 ----------------------End of exporting variables------------------------------------------------------**
 
-export FOAM_INST_DIR=/app/Engys
-source /app/Engys/OpenFOAM/OpenFOAM-2.2_engysEdition-2.8/etc/bashrc
+export FOAM_INST_DIR=/home/subhasis/Engys/Engys
+source /home/subhasis/Engys/Engys/OpenFOAM-2.2_engysEdition-2.5/etc/bashrc
 
 
 
@@ -33,13 +33,14 @@ echo "Accessing Geometry from: " $2;
 echo "Using fridge config database (hardcoded): " ${fridge_config_database};
 sleep 1;
 
+rm -r TestApp
+createCase -case ./ TestApp -nProcs  "16" ;
+
+cp -r /system/*   TestApp/system/
+cp -r /constant/*   TestApp/constant/
 
 
-cp -r $3/system/*   ${newCase}/system/
-cp -r $3/constant/*   ${newCase}/constant/
-
-createCase -case ./ TestApp -nProcs  "16" ;)
-
+cd TestApp
 mpirun -np "16"  snappyHexMesh  -parallel  -overwrite  2>&1 | tee -a log/snappyHexMesh.log
 
 
