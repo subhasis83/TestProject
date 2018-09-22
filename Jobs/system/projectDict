@@ -1,0 +1,81 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX                                                  |
+|   o   O   o      | Version: v2.5.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location system;
+    object projectDict;
+}
+
+    runDict
+    {
+        remote false;
+        serverState
+        {
+            solverState INITIALISED;
+            command INITIALISE_FIELDS;
+            error
+            {
+                returnValue 0;
+            }
+
+        }
+
+        queue false;
+        queueParameters
+        {
+            numberOfNodes 1;
+            cpuPerNode 1;
+            timeout 500;
+            feature ;
+            nodeNames ;
+        }
+
+        logFile simpleFoam.log;
+        hostfilePath ;
+        multiMachine false;
+        solverName simpleFoam;
+        sshParameters
+        {
+            host ;
+            port 22;
+            user ;
+            sshauth SSH_PWD;
+            sshkey ;
+            sshpwd ;
+            remoteBaseDir ;
+            remoteBaseDirParent ;
+            openFoamDir ;
+            paraviewDir ;
+            applicationDir ;
+            validForRemoteChooser true;
+        }
+
+    }
+
+    meshInfo
+    {
+        valid true;
+        faceZones 4;
+        cellZones 4;
+        cells 877491;
+        points 1048987;
+        faces 2810012;
+        internalFaces 2566744;
+        boundaryPatches 6;
+        pointZones 0;
+        hexahedra 749552;
+        prisms 41277;
+        wedges 3154;
+        pyramids 66;
+        tetWedges 3276;
+        tetrahedra 511;
+        polyhedra 79655;
+    }

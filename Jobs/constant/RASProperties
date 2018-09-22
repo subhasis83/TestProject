@@ -1,0 +1,30 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX                                                  |
+|   o   O   o      | Version: v2.5.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location constant;
+    object RASProperties;
+}
+
+    RASModel kOmegaSST;
+    turbulence on;
+    printCoeffs on;
+    kOmegaSSTCoeffs
+    {
+        label "k-\u03C9 SST";
+        fieldMaps
+        {
+            k k;
+            omega omega;
+            nut nut;
+        }
+
+    }

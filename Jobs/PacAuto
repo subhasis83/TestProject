@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#!/usr/bin/php
+
+#**---------------------------------------***----------------------------------------------------------**
+# File Name: RefrigerationAUTO
+# Description: This file is an automation script for running the case in CFD-Lite.
+# Developed by Tata Elxsi for APC RDSG.
+# Creation Date: 22-Nov-2017.
+#**---------------------------------------***----------------------------------------------------------**
+
+#**---------------------------------------***----------------------------------------------------------**
+# Creates case and copies template setttings.
+# Usage:   ./RefrigerationAuto   <newCase>   <GeometryFolder> <ConfigurationFolder>
+# <GeometryFolder>  contains user step files and additional specs
+# <ConfigurationFolder> contains system files 
+#**---------------------------------------***----------------------------------------------------------**
+----------------------End of exporting variables------------------------------------------------------**
+
+export FOAM_INST_DIR=/app/Engys
+source /app/Engys/OpenFOAM/OpenFOAM-2.2_engysEdition-2.8/etc/bashrc
+
+
+
+
+date="$(date)"
+echo $date
+
+
+
+echo "Creating case: " $1;
+echo "Accessing Geometry from: " $2;
+echo "Using fridge config database (hardcoded): " ${fridge_config_database};
+sleep 1;
+
+
+
+cp -r $3/system/*   ${newCase}/system/
+cp -r $3/constant/*   ${newCase}/constant/
+
+createCase -case ./ TestApp -nProcs  "16" ;)
+
+mpirun -np "16"  snappyHexMesh  -parallel  -overwrite  2>&1 | tee -a log/snappyHexMesh.log
+
+
+exit
+#########################################It ends here- calling Image Generation in PostProcessing #######################################
+

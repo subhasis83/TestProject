@@ -1,0 +1,23 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX                                                  |
+|   o   O   o      | Version: v2.5.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location system;
+    object stretchMeshDict;
+}
+
+    basePoint ( 0 0 0);
+    stretchDirection ( 1 0 0);
+    initialLength 1;
+    stretchLength 3;
+    expansionRatio 1.3;
+    delta 0.05;
+    symmetric true;

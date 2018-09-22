@@ -1,0 +1,88 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+|       o          |                                                          |
+|    o     o       | HELYX                                                  |
+|   o   O   o      | Version: v2.5.0                                           |
+|    o     o       | Web:     http://www.engys.com                            |
+|       o          |                                                          |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class dictionary;
+    location system;
+    object fvOptions;
+}
+
+    MRF1_mrf
+    {
+        type MRFSource;
+        active true;
+        selectionMode cellZone;
+        cellZone MRF1;
+        MRFSourceCoeffs
+        {
+            origin ( 0.0 0.0 0.0 );
+            axis ( 1.0 0.0 0.0 );
+            omega constant 117.285;
+            rotatingPatches ();
+            nonRotatingPatches ();
+            attachedPatches ();
+        }
+
+    }
+
+    MRF2_mrf
+    {
+        type MRFSource;
+        active true;
+        selectionMode cellZone;
+        cellZone MRF2;
+        MRFSourceCoeffs
+        {
+            origin ( 0.0 0.0 0.0 );
+            axis ( 1.0 0.0 0.0 );
+            omega constant 117.285;
+            rotatingPatches ();
+            nonRotatingPatches ();
+            attachedPatches ();
+        }
+
+    }
+
+    MRF3_mrf
+    {
+        type MRFSource;
+        active true;
+        selectionMode cellZone;
+        cellZone MRF3;
+        MRFSourceCoeffs
+        {
+            origin ( 0.0 0.0 0.0 );
+            axis ( 1.0 0.0 0.0 );
+            omega constant 117.285;
+            rotatingPatches ();
+            nonRotatingPatches ();
+            attachedPatches ();
+        }
+
+    }
+
+    HE_porous
+    {
+        type explicitPorositySource;
+        active true;
+        selectionMode cellZone;
+        cellZone HE;
+        explicitPorositySourceCoeffs
+        {
+            type powerLaw;
+            powerLawCoeffs
+            {
+                C0 341.1;
+                C1 1.39;
+            }
+
+        }
+
+    }
