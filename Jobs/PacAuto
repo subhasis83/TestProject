@@ -36,8 +36,8 @@ sleep 1;
 rm -r TestApp
 createCase -case ./ TestApp -nProcs  "16" ;
 
-cp -r /system/*   TestApp/system/
-cp -r /constant/*   TestApp/constant/
+cp -r system/*   TestApp/system/
+cp -r constant/*   TestApp/constant/
 
 
 cd TestApp
